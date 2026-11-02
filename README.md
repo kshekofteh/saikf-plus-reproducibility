@@ -78,3 +78,30 @@ article states the limitations of that evaluation in its Section X.
 
 The code is released under the MIT License. The generated data files are
 released under CC BY 4.0.
+
+## Heterogeneous-sensor analysis (added for the TSP submission)
+
+These scripts verify the lemmas and the heterogeneous-sensor theorem, and
+generate the data for the heterogeneity figure.
+
+| File | Purpose |
+|---|---|
+| `explore_heterogeneous.py` | Checks the structural conjectures: the information matrices lie in a fixed convex set, and for common dynamics with scalar-heterogeneous sensors the information reduces to a scalar multiple of a single matrix |
+| `common_lyapunov.py` | Samples the reachable set of per-agent blocks and searches for a common quadratic Lyapunov function by derivative-free optimisation |
+| `verify_theorem.py` | Verifies that the weighted block-maximum norm of the combination matrix is exactly one, and that the product envelope holds |
+| `make_sweep_data.py` | Sweeps the sensor spread and writes `data/h1_spread.dat` |
+
+Run order: `common_lyapunov.py`, then `verify_theorem.py`, then
+`make_sweep_data.py`. Requires Python 3.9+ and NumPy.
+
+Key values a correct run reproduces:
+
+| Quantity | Value |
+|---|---|
+| Scalar reduction residual | 4e-16 |
+| Weighted block-maximum norm of the combination matrix | 1.000000 |
+| Common Lyapunov certificate | 0.9733, against max per-agent spectral radius 0.9687 |
+| Product envelope ratio | 1.02 |
+| Certificate satisfiable to a sensor spread of | 4 |
+| Joint spectral radius below one to a spread of at least | 25 |
+
