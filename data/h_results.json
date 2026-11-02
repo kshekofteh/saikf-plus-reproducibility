@@ -1,0 +1,12 @@
+{
+  "spread_app": 1.875,
+  "lambda_app": 0.9997359686612435,
+  "lambda_homog": 0.9584563478621446,
+  "rho_homog": 0.9512343774403157,
+  "jsr_homog": 0.9610849061186825,
+  "cert_limit": 4.0,
+  "jsr_limit": 25.0,
+  "n_blocks": 960,
+  "n_colstoch": 40,
+  "wnorm": 1.0
+}
